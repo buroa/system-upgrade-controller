@@ -5,7 +5,6 @@ import (
 	"time"
 
 	"github.com/onsi/ginkgo/v2"
-	"k8s.io/kubernetes/test/e2e/framework/ginkgowrapper"
 )
 
 // Logf logs the info.
@@ -35,7 +34,7 @@ func Failf(format string, args ...interface{}) {
 func FailfWithOffset(offset int, format string, args ...interface{}) {
 	msg := fmt.Sprintf(format, args...)
 	Logf("FAIL", msg)
-	ginkgowrapper.Fail(nowStamp()+": "+msg, 1+offset)
+	ginkgo.Fail(nowStamp()+": "+msg, 1+offset)
 }
 
 func nowStamp() string {

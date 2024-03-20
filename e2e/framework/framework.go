@@ -42,6 +42,7 @@ type Options struct {
 
 type Client struct {
 	framework.Framework
+	context context.Context
 
 	UpgradeClientSet *upgradecln.Clientset
 
@@ -62,10 +63,10 @@ func New(name string, opt ...Option) *Client {
 	client := &Client{
 		Framework: framework.Framework{
 			BaseName:                         name,
-			AddonResourceConstraints:         make(map[string]framework.ResourceConstraint),
 			NamespacePodSecurityEnforceLevel: admissionapi.LevelPrivileged,
 			Options:                          options.Options,
 		},
+		context: context.Background(),
 	}
 	ginkgo.BeforeEach(client.BeforeEach)
 	ginkgo.AfterEach(client.AfterEach)
@@ -91,43 +92,43 @@ func (c *Client) NewPlan(name, image string, command []string, args ...string) *
 }
 
 func (c *Client) CreatePlan(plan *upgradeapiv1.Plan) (*upgradeapiv1.Plan, error) {
-	return c.UpgradeClientSet.UpgradeV1().Plans(c.Namespace.Name).Create(context.TODO(), plan, metav1.CreateOptions{})
+	return c.UpgradeClientSet.UpgradeV1().Plans(c.Namespace.Name).Create(c.context, plan, metav1.CreateOptions{})
 }
 
 func (c *Client) UpdatePlan(plan *upgradeapiv1.Plan) (*upgradeapiv1.Plan, error) {
-	return c.UpgradeClientSet.UpgradeV1().Plans(c.Namespace.Name).Update(context.TODO(), plan, metav1.UpdateOptions{})
+	return c.UpgradeClientSet.UpgradeV1().Plans(c.Namespace.Name).Update(c.context, plan, metav1.UpdateOptions{})
 }
 
 func (c *Client) UpdatePlanStatus(plan *upgradeapiv1.Plan) (*upgradeapiv1.Plan, error) {
-	return c.UpgradeClientSet.UpgradeV1().Plans(c.Namespace.Name).UpdateStatus(context.TODO(), plan, metav1.UpdateOptions{})
+	return c.UpgradeClientSet.UpgradeV1().Plans(c.Namespace.Name).UpdateStatus(c.context, plan, metav1.UpdateOptions{})
 }
 
 func (c *Client) GetPlan(name string, options metav1.GetOptions) (*upgradeapiv1.Plan, error) {
-	return c.UpgradeClientSet.UpgradeV1().Plans(c.Namespace.Name).Get(context.TODO(), name, options)
+	return c.UpgradeClientSet.UpgradeV1().Plans(c.Namespace.Name).Get(c.context, name, options)
 }
 
 func (c *Client) ListPlans(options metav1.ListOptions) (*upgradeapiv1.PlanList, error) {
-	return c.UpgradeClientSet.UpgradeV1().Plans(c.Namespace.Name).List(context.TODO(), options)
+	return c.UpgradeClientSet.UpgradeV1().Plans(c.Namespace.Name).List(c.context, options)
 }
 
 func (c *Client) WatchPlans(options metav1.ListOptions) (watch.Interface, error) {
-	return c.UpgradeClientSet.UpgradeV1().Plans(c.Namespace.Name).Watch(context.TODO(), options)
+	return c.UpgradeClientSet.UpgradeV1().Plans(c.Namespace.Name).Watch(c.context, options)
 }
 
 func (c *Client) DeletePlan(name string, options metav1.DeleteOptions) error {
-	return c.UpgradeClientSet.UpgradeV1().Plans(c.Namespace.Name).Delete(context.TODO(), name, options)
+	return c.UpgradeClientSet.UpgradeV1().Plans(c.Namespace.Name).Delete(c.context, name, options)
 }
 
 func (c *Client) DeletePlans(options metav1.DeleteOptions, listOpts metav1.ListOptions) error {
-	return c.UpgradeClientSet.UpgradeV1().Plans(c.Namespace.Name).DeleteCollection(context.TODO(), options, listOpts)
+	return c.UpgradeClientSet.UpgradeV1().Plans(c.Namespace.Name).DeleteCollection(c.context, options, listOpts)
 }
 
 func (c *Client) CreateSecret(secret *corev1.Secret) (*corev1.Secret, error) {
-	return c.ClientSet.CoreV1().Secrets(c.Namespace.Name).Create(context.TODO(), secret, metav1.CreateOptions{})
+	return c.ClientSet.CoreV1().Secrets(c.Namespace.Name).Create(c.context, secret, metav1.CreateOptions{})
 }
 
 func (c *Client) UpdateSecret(secret *corev1.Secret) (*corev1.Secret, error) {
-	return c.ClientSet.CoreV1().Secrets(c.Namespace.Name).Update(context.TODO(), secret, metav1.UpdateOptions{})
+	return c.ClientSet.CoreV1().Secrets(c.Namespace.Name).Update(c.context, secret, metav1.UpdateOptions{})
 }
 
 func (c *Client) WaitForPlanCondition(name string, cond condition.Cond, timeout time.Duration) (plan *upgradeapiv1.Plan, err error) {
@@ -146,7 +147,7 @@ func (c *Client) WaitForPlanJobs(plan *upgradeapiv1.Plan, count int, timeout tim
 	})
 
 	return jobs, wait.Poll(5*time.Second, timeout, func() (bool, error) {
-		list, err := c.ClientSet.BatchV1().Jobs(plan.Namespace).List(context.TODO(), metav1.ListOptions{
+		list, err := c.ClientSet.BatchV1().Jobs(plan.Namespace).List(c.context, metav1.ListOptions{
 			LabelSelector: labelSelector.String(),
 		})
 		if err != nil {
@@ -163,17 +164,17 @@ func (c *Client) WaitForPlanJobs(plan *upgradeapiv1.Plan, count int, timeout tim
 
 func (c *Client) BeforeEach() {
 	c.beforeFramework()
-	c.Framework.BeforeEach()
+	c.Framework.BeforeEach(c.context)
 	c.setupController()
 }
 
 func (c *Client) AfterEach() {
-	c.Framework.AfterEach()
+	c.Framework.AfterEach(c.context)
 }
 
 func (c *Client) setupController() {
 	var err error
-	c.controllerServiceAccount, err = c.ClientSet.CoreV1().ServiceAccounts(c.Namespace.Name).Create(context.TODO(), &corev1.ServiceAccount{
+	c.controllerServiceAccount, err = c.ClientSet.CoreV1().ServiceAccounts(c.Namespace.Name).Create(c.context, &corev1.ServiceAccount{
 		ObjectMeta: metav1.ObjectMeta{
 			Namespace: c.Namespace.Name,
 			Name:      c.Namespace.Name,
@@ -181,7 +182,7 @@ func (c *Client) setupController() {
 	}, metav1.CreateOptions{})
 	framework.ExpectNoError(err)
 
-	err = frameworkauth.BindClusterRole(c.ClientSet.RbacV1(), "cluster-admin", c.Namespace.Name, rbacv1.Subject{
+	err = frameworkauth.BindClusterRole(c.context, c.ClientSet.RbacV1(), "cluster-admin", c.Namespace.Name, rbacv1.Subject{
 		Kind:      rbacv1.ServiceAccountKind,
 		Name:      c.controllerServiceAccount.Name,
 		Namespace: c.controllerServiceAccount.Namespace,
