@@ -8,11 +8,11 @@ on:
   pull_request:
 
 jobs:
-  build-container:
+  build:
     if: ${{ github.event.pull_request.head.repo.full_name == 'buroa/system-upgrade-controller' }}
     name: Build and push container
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -49,23 +49,3 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-
-  build-crd:
-    if: ${{ github.event.pull_request.head.repo.full_name == 'buroa/system-upgrade-controller' }}
-    name: Build CRD and upload to release
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Go
-        uses: actions/setup-go@v4
-        with:
-          go-version: 1.21
-
-      - name: Install dependencies
-        run: go get .
-
-      - name: Build CRD
-        run: go run ./hack/crdgen.go
