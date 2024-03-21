@@ -9,6 +9,7 @@ require (
 	github.com/rancher/lasso v0.0.0-20240320130657-3538f7bf5a4c
 	github.com/rancher/system-upgrade-controller/pkg/apis v0.13.4
 	github.com/rancher/wrangler v1.1.2
+	github.com/rancher/wrangler/v2 v2.1.4
 	github.com/sirupsen/logrus v1.9.0
 	github.com/urfave/cli v1.22.14
 	github.com/urfave/cli/v2 v2.27.1
@@ -37,7 +38,7 @@ require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/distribution/reference v0.5.0 // indirect
 	github.com/emicklei/go-restful/v3 v3.11.0 // indirect
-	github.com/evanphx/json-patch v4.12.0+incompatible // indirect
+	github.com/evanphx/json-patch v5.6.0+incompatible // indirect
 	github.com/felixge/httpsnoop v1.0.3 // indirect
 	github.com/fsnotify/fsnotify v1.7.0 // indirect
 	github.com/ghodss/yaml v1.0.0 // indirect
