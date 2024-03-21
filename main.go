@@ -16,7 +16,7 @@ import (
 	"github.com/buroa/system-upgrade-controller/pkg/version"
 	"github.com/rancher/wrangler/v2/pkg/signals"
 	"github.com/sirupsen/logrus"
-	"github.com/urfave/cli"
+	"github.com/urfave/cli/v2"
 	"k8s.io/client-go/tools/clientcmd"
 )
 
@@ -33,42 +33,42 @@ func main() {
 	app.Usage = "in ur system controllin ur upgradez"
 	app.Version = fmt.Sprintf("%s (%s)", version.Version, version.GitCommit)
 	app.Flags = []cli.Flag{
-		cli.BoolFlag{
+		&cli.BoolFlag{
 			Name:        "debug",
-			EnvVar:      "SYSTEM_UPGRADE_CONTROLLER_DEBUG",
+			EnvVars:     []string{"SYSTEM_UPGRADE_CONTROLLER_DEBUG"},
 			Destination: &debug,
 		},
-		cli.StringFlag{
-			Name:   "kubeconfig",
-			EnvVar: "SYSTEM_UPGRADE_CONTROLLER_KUBE_CONFIG",
+		&cli.StringFlag{
+			Name:    "kubeconfig",
+			EnvVars: []string{"SYSTEM_UPGRADE_CONTROLLER_KUBE_CONFIG"},
 			//Value:  "${HOME}/.kube/config",
 			Destination: &kubeConfig,
 		},
-		cli.StringFlag{
+		&cli.StringFlag{
 			Name:        "master",
-			EnvVar:      "SYSTEM_UPGRADE_CONTROLLER_MASTER_URL",
+			EnvVars:     []string{"SYSTEM_UPGRADE_CONTROLLER_MASTER_URL"},
 			Destination: &masterURL,
 		},
-		cli.StringFlag{
+		&cli.StringFlag{
 			Name:        "name",
-			EnvVar:      "SYSTEM_UPGRADE_CONTROLLER_NAME",
+			EnvVars:     []string{"SYSTEM_UPGRADE_CONTROLLER_NAME"},
 			Required:    true,
 			Destination: &name,
 		},
-		cli.StringFlag{
+		&cli.StringFlag{
 			Name:        "namespace",
-			EnvVar:      "SYSTEM_UPGRADE_CONTROLLER_NAMESPACE",
+			EnvVars:     []string{"SYSTEM_UPGRADE_CONTROLLER_NAMESPACE"},
 			Required:    true,
 			Destination: &namespace,
 		},
-		cli.StringFlag{
+		&cli.StringFlag{
 			Name:        "service-account",
 			Hidden:      true,
 			Destination: &serviceAccountName,
 		},
-		cli.IntFlag{
+		&cli.IntFlag{
 			Name:        "threads",
-			EnvVar:      "SYSTEM_UPGRADE_CONTROLLER_THREADS",
+			EnvVars:     []string{"SYSTEM_UPGRADE_CONTROLLER_THREADS"},
 			Value:       2,
 			Destination: &threads,
 		},
@@ -84,7 +84,7 @@ func main() {
 	}
 }
 
-func Run(_ *cli.Context) {
+func Run(_ *cli.Context) error {
 	if debug {
 		logrus.SetLevel(logrus.DebugLevel)
 		logrus.SetReportCaller(true)
@@ -92,14 +92,18 @@ func Run(_ *cli.Context) {
 	cfg, err := clientcmd.BuildConfigFromFlags(masterURL, kubeConfig)
 	if err != nil {
 		logrus.Fatal(err)
+		return err
 	}
 	ctl, err := upgrade.NewController(cfg, namespace, name, 2*time.Hour)
 	if err != nil {
 		logrus.Fatal(err)
+		return err
 	}
 	ctx := signals.SetupSignalContext()
 	if err := ctl.Start(ctx, threads); err != nil {
 		logrus.Fatalf("Error starting: %v", err)
+		return err
 	}
 	<-ctx.Done()
+	return nil
 }
