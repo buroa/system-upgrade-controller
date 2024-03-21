@@ -10,7 +10,8 @@ require (
 	github.com/rancher/system-upgrade-controller/pkg/apis v0.0.0-20240308073002-4a643535e6ea
 	github.com/rancher/wrangler v1.1.2
 	github.com/sirupsen/logrus v1.9.0
-	github.com/urfave/cli v1.22.2
+	github.com/urfave/cli v1.22.14
+	github.com/urfave/cli/v2 v2.27.1
 	k8s.io/api v0.29.3
 	k8s.io/apimachinery v0.29.3
 	k8s.io/client-go v0.29.3
