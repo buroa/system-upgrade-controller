@@ -46,6 +46,6 @@ spec:
     args:
       - --nodes=$(NODE_IP)
       - upgrade
-      - --image=ghcr.io/buroa/installer:$(SYSTEM_UPGRADE_PLAN_LATEST_VERSION)
+      - --image=ghcr.io/siderolabs/installer:$(SYSTEM_UPGRADE_PLAN_LATEST_VERSION)
       - --preserve=true
       - --wait=false
