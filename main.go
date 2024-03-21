@@ -16,7 +16,7 @@ import (
 	"github.com/buroa/system-upgrade-controller/pkg/version"
 	"github.com/rancher/wrangler/pkg/signals"
 	"github.com/sirupsen/logrus"
-	"github.com/urfave/cli"
+	"github.com/urfave/cli/v2"
 	"k8s.io/client-go/tools/clientcmd"
 )
 
