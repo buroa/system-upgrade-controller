@@ -2,8 +2,8 @@ package main
 
 import (
 	v1 "github.com/buroa/system-upgrade-controller/pkg/apis/upgrade.cattle.io/v1"
-	controllergen "github.com/rancher/wrangler/pkg/controller-gen"
-	"github.com/rancher/wrangler/pkg/controller-gen/args"
+	controllergen "github.com/rancher/wrangler/v2/pkg/controller-gen"
+	"github.com/rancher/wrangler/v2/pkg/controller-gen/args"
 )
 
 func main() {
