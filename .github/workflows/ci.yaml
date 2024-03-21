@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    if: ${{ github.event.pull_request.head.repo.full_name == 'buroa/system-upgrade-controller' }}
+    if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
     name: Build and push container
     runs-on: ubuntu-latest
 
