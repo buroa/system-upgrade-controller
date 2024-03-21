@@ -1,6 +1,6 @@
 FROM golang:1.22-alpine3.19 AS builder
 
-ARG PKG=github.com/rancher/system-upgrade-controller
+ARG PKG=github.com/buroa/system-upgrade-controller
 ARG VERSION=dev
 ARG REVISION=dev
 ARG BUILDTIME

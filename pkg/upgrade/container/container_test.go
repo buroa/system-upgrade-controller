@@ -1,10 +1,10 @@
 package container_test
 
 import (
+	upgradeapiv1 "github.com/buroa/system-upgrade-controller/pkg/apis/upgrade.cattle.io/v1"
+	"github.com/buroa/system-upgrade-controller/pkg/upgrade/container"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
-	upgradeapiv1 "github.com/rancher/system-upgrade-controller/pkg/apis/upgrade.cattle.io/v1"
-	"github.com/rancher/system-upgrade-controller/pkg/upgrade/container"
 	corev1 "k8s.io/api/core/v1"
 )
 

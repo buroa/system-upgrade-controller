@@ -1,10 +1,10 @@
 package suite_test
 
 import (
+	"github.com/buroa/system-upgrade-controller/e2e/framework"
+	upgradeapiv1 "github.com/buroa/system-upgrade-controller/pkg/apis/upgrade.cattle.io/v1"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
-	"github.com/rancher/system-upgrade-controller/e2e/framework"
-	upgradeapiv1 "github.com/rancher/system-upgrade-controller/pkg/apis/upgrade.cattle.io/v1"
 )
 
 var _ = Describe("Plan Creation", func() {

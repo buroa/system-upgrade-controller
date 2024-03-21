@@ -12,8 +12,8 @@ import (
 	"strings"
 	"time"
 
-	upgradeapi "github.com/rancher/system-upgrade-controller/pkg/apis/upgrade.cattle.io"
-	upgradeapiv1 "github.com/rancher/system-upgrade-controller/pkg/apis/upgrade.cattle.io/v1"
+	upgradeapi "github.com/buroa/system-upgrade-controller/pkg/apis/upgrade.cattle.io"
+	upgradeapiv1 "github.com/buroa/system-upgrade-controller/pkg/apis/upgrade.cattle.io/v1"
 	"github.com/rancher/wrangler/pkg/crd"
 	"github.com/rancher/wrangler/pkg/data"
 	corectlv1 "github.com/rancher/wrangler/pkg/generated/controllers/core/v1"

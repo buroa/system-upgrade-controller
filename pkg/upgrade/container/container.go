@@ -3,8 +3,8 @@ package container
 import (
 	"path/filepath"
 
+	upgradeapiv1 "github.com/buroa/system-upgrade-controller/pkg/apis/upgrade.cattle.io/v1"
 	"github.com/docker/distribution/reference"
-	upgradeapiv1 "github.com/rancher/system-upgrade-controller/pkg/apis/upgrade.cattle.io/v1"
 	"github.com/rancher/wrangler/pkg/name"
 	"github.com/sirupsen/logrus"
 	corev1 "k8s.io/api/core/v1"

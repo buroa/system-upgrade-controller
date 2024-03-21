@@ -12,8 +12,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/rancher/system-upgrade-controller/pkg/upgrade"
-	"github.com/rancher/system-upgrade-controller/pkg/version"
+	"github.com/buroa/system-upgrade-controller/pkg/upgrade"
+	"github.com/buroa/system-upgrade-controller/pkg/version"
 	"github.com/rancher/wrangler/pkg/signals"
 	"github.com/sirupsen/logrus"
 	"github.com/urfave/cli"

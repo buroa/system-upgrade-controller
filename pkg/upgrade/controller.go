@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"time"
 
-	upgradectl "github.com/rancher/system-upgrade-controller/pkg/generated/controllers/upgrade.cattle.io"
-	upgradeplan "github.com/rancher/system-upgrade-controller/pkg/upgrade/plan"
+	upgradectl "github.com/buroa/system-upgrade-controller/pkg/generated/controllers/upgrade.cattle.io"
+	upgradeplan "github.com/buroa/system-upgrade-controller/pkg/upgrade/plan"
 	"github.com/rancher/wrangler/pkg/apply"
 	"github.com/rancher/wrangler/pkg/crd"
 	batchctl "github.com/rancher/wrangler/pkg/generated/controllers/batch"

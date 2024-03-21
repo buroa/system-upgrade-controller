@@ -7,9 +7,9 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/rancher/system-upgrade-controller/pkg/apis/condition"
-	upgradeapi "github.com/rancher/system-upgrade-controller/pkg/apis/upgrade.cattle.io"
-	upgradejob "github.com/rancher/system-upgrade-controller/pkg/upgrade/job"
+	"github.com/buroa/system-upgrade-controller/pkg/apis/condition"
+	upgradeapi "github.com/buroa/system-upgrade-controller/pkg/apis/upgrade.cattle.io"
+	upgradejob "github.com/buroa/system-upgrade-controller/pkg/upgrade/job"
 	batchctlv1 "github.com/rancher/wrangler/pkg/generated/controllers/batch/v1"
 	batchv1 "k8s.io/api/batch/v1"
 	"k8s.io/apimachinery/pkg/api/errors"
