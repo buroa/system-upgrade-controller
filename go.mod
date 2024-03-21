@@ -11,7 +11,7 @@ require (
 	github.com/rancher/wrangler v1.1.2
 	github.com/rancher/wrangler/v2 v2.1.4
 	github.com/sirupsen/logrus v1.9.3
-	github.com/urfave/cli v1.22.14
+	github.com/urfave/cli/v2 v2.27.1
 	github.com/urfave/cli/v2 v2.27.1
 	k8s.io/api v0.29.3
 	k8s.io/apimachinery v0.29.3
