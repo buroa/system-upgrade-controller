@@ -3,7 +3,7 @@ module github.com/rancher/system-upgrade-controller/pkg/apis
 go 1.20
 
 require (
-	github.com/rancher/wrangler v1.1.1-0.20230425173236-39a4707f0689
+	github.com/rancher/wrangler v1.1.2
 	github.com/sirupsen/logrus v1.9.0
 	k8s.io/api v0.25.12
 	k8s.io/apimachinery v0.25.12
