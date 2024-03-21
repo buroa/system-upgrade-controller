@@ -1,11 +1,8 @@
 module github.com/buroa/system-upgrade-controller/pkg/apis
 
-go 1.21
-
-toolchain go1.22.1
+go 1.22
 
 require (
-	github.com/rancher/wrangler/v2 v2.1.4
 	github.com/rancher/wrangler/v2 v2.1.4
 	github.com/sirupsen/logrus v1.9.3
 	k8s.io/api v0.29.3

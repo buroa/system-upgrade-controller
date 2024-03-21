@@ -5,7 +5,8 @@ package v1
 import (
 	v1 "github.com/buroa/system-upgrade-controller/pkg/apis/upgrade.cattle.io/v1"
 	"github.com/rancher/lasso/pkg/controller"
-	"github.com/rancher/wrangler/pkg/schemes"
+	"github.com/rancher/wrangler/v2/pkg/generic"
+	"github.com/rancher/wrangler/v2/pkg/schemes"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 )
 
@@ -27,6 +28,6 @@ type version struct {
 	controllerFactory controller.SharedControllerFactory
 }
 
-func (c *version) Plan() PlanController {
-	return NewPlanController(schema.GroupVersionKind{Group: "upgrade.cattle.io", Version: "v1", Kind: "Plan"}, "plans", true, c.controllerFactory)
+func (v *version) Plan() PlanController {
+	return generic.NewController[*v1.Plan, *v1.PlanList](schema.GroupVersionKind{Group: "upgrade.cattle.io", Version: "v1", Kind: "Plan"}, "plans", true, v.controllerFactory)
 }

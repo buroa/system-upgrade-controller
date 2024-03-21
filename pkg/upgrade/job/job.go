@@ -11,7 +11,7 @@ import (
 	upgradeapiv1 "github.com/buroa/system-upgrade-controller/pkg/apis/upgrade.cattle.io/v1"
 	upgradectr "github.com/buroa/system-upgrade-controller/pkg/upgrade/container"
 	upgradenode "github.com/buroa/system-upgrade-controller/pkg/upgrade/node"
-	"github.com/rancher/wrangler/pkg/name"
+	"github.com/rancher/wrangler/v2/pkg/name"
 	"github.com/sirupsen/logrus"
 	batchv1 "k8s.io/api/batch/v1"
 	corev1 "k8s.io/api/core/v1"

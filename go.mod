@@ -8,7 +8,7 @@ require (
 	github.com/onsi/ginkgo/v2 v2.17.0
 	github.com/onsi/gomega v1.32.0
 	github.com/rancher/lasso v0.0.0-20240320130657-3538f7bf5a4c
-	github.com/rancher/wrangler v1.1.2
+	github.com/rancher/wrangler/v2 v2.1.4
 	github.com/sirupsen/logrus v1.9.3
 	github.com/urfave/cli v1.22.14
 	k8s.io/api v0.29.3
