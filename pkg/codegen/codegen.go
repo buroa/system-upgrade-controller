@@ -8,7 +8,7 @@ import (
 
 func main() {
 	controllergen.Run(args.Options{
-		Boilerplate:   "/dev/null",
+		Boilerplate:   "hack/boilerplate.go.txt",
 		OutputPackage: "github.com/buroa/system-upgrade-controller/pkg/generated",
 		Groups: map[string]args.Group{
 			"upgrade.cattle.io": {
