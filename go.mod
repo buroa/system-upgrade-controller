@@ -7,7 +7,7 @@ require (
 	github.com/docker/distribution v2.8.3+incompatible
 	github.com/onsi/ginkgo/v2 v2.17.1
 	github.com/onsi/gomega v1.32.0
-	github.com/rancher/lasso v0.0.0-20240320130657-3538f7bf5a4c
+	github.com/rancher/lasso v0.0.0-20240325194215-0064abcb8aee
 	github.com/rancher/wrangler/v2 v2.1.4
 	github.com/sirupsen/logrus v1.9.3
 	github.com/urfave/cli/v2 v2.27.1
