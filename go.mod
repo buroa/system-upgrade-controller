@@ -11,12 +11,12 @@ require (
 	github.com/rancher/wrangler/v2 v2.1.4
 	github.com/sirupsen/logrus v1.9.3
 	github.com/urfave/cli/v2 v2.27.1
-	k8s.io/api v0.29.3
-	k8s.io/apimachinery v0.29.3
-	k8s.io/client-go v0.29.3
-	k8s.io/kubectl v0.29.3
+	k8s.io/api v0.29.4
+	k8s.io/apimachinery v0.29.4
+	k8s.io/client-go v0.29.4
+	k8s.io/kubectl v0.29.4
 	k8s.io/kubernetes v1.29.3
-	k8s.io/pod-security-admission v0.29.3
+	k8s.io/pod-security-admission v0.29.4
 	k8s.io/utils v0.0.0-20240310230437-4693a0247e57
 )
 
@@ -94,7 +94,7 @@ require (
 	golang.org/x/crypto v0.21.0 // indirect
 	golang.org/x/exp v0.0.0-20240318143956-a85f2c67cd81 // indirect
 	golang.org/x/mod v0.16.0 // indirect
-	golang.org/x/net v0.22.0 // indirect
+	golang.org/x/net v0.23.0 // indirect
 	golang.org/x/oauth2 v0.18.0 // indirect
 	golang.org/x/sync v0.6.0 // indirect
 	golang.org/x/sys v0.18.0 // indirect
@@ -113,15 +113,15 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	k8s.io/apiextensions-apiserver v0.29.3 // indirect
-	k8s.io/apiserver v0.29.3 // indirect
+	k8s.io/apiserver v0.29.4 // indirect
 	k8s.io/cloud-provider v0.29.3 // indirect
 	k8s.io/code-generator v0.29.3 // indirect
-	k8s.io/component-base v0.29.3 // indirect
-	k8s.io/component-helpers v0.29.3 // indirect
+	k8s.io/component-base v0.29.4 // indirect
+	k8s.io/component-helpers v0.29.4 // indirect
 	k8s.io/controller-manager v0.29.3 // indirect
 	k8s.io/gengo v0.0.0-20240310015720-9cff6334dab4 // indirect
 	k8s.io/klog/v2 v2.120.1 // indirect
-	k8s.io/kms v0.29.3 // indirect
+	k8s.io/kms v0.29.4 // indirect
 	k8s.io/kube-openapi v0.0.0-20240228011516-70dd3763d340 // indirect
 	k8s.io/kubelet v0.29.3 // indirect
 	sigs.k8s.io/apiserver-network-proxy/konnectivity-client v0.30.2 // indirect
