@@ -51,6 +51,15 @@ Take a look at [kubesearch.dev](https://kubesearch.dev/#system-upgrade-controlle
 
 ### Example Plans
 
+Using this for Talos and with the examples below will only work if `node-feature-discovery` is installed and configured with the system source like so:
+
+```
+worker:
+  config:
+    core:
+      sources: ["pci", "system", "usb"]
+```
+
 - [examples/kubernetes.yaml](examples/kubernetes.yaml)
   - Demonstrates upgrading Kubernetes on Talos Linux.
 - [examples/talos.yaml](examples/talos.yaml)
