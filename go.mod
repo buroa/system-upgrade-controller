@@ -1,6 +1,8 @@
 module github.com/buroa/system-upgrade-controller
 
-go 1.22
+go 1.22.0
+
+toolchain go1.22.2
 
 require (
 	github.com/buroa/system-upgrade-controller/pkg/apis v0.15.0
@@ -11,11 +13,11 @@ require (
 	github.com/rancher/wrangler/v2 v2.1.4
 	github.com/sirupsen/logrus v1.9.3
 	github.com/urfave/cli/v2 v2.27.1
-	k8s.io/api v0.29.4
-	k8s.io/apimachinery v0.29.4
-	k8s.io/client-go v0.29.4
+	k8s.io/api v0.30.0
+	k8s.io/apimachinery v0.30.0
+	k8s.io/client-go v0.30.0
 	k8s.io/kubectl v0.29.4
-	k8s.io/kubernetes v1.29.4
+	k8s.io/kubernetes v1.30.0
 	k8s.io/pod-security-admission v0.29.4
 	k8s.io/utils v0.0.0-20240310230437-4693a0247e57
 )
