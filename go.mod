@@ -6,7 +6,7 @@ require (
 	github.com/buroa/system-upgrade-controller/pkg/apis v0.15.0
 	github.com/docker/distribution v2.8.3+incompatible
 	github.com/onsi/ginkgo/v2 v2.17.1
-	github.com/onsi/gomega v1.32.0
+	github.com/onsi/gomega v1.33.0
 	github.com/rancher/lasso v0.0.0-20240415182150-5993b260dd08
 	github.com/rancher/wrangler/v2 v2.1.4
 	github.com/sirupsen/logrus v1.9.3
