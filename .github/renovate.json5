@@ -5,5 +5,9 @@
   "postUpdateOptions": [
     "gomodTidy",
     "gomodUpdateImportPaths"
+  ],
+  "ignoreDeps": [
+    "github.com/rancher/lasso",
+    "k8s.io/utils"
   ]
 }
