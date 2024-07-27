@@ -7,8 +7,8 @@ require (
 	github.com/docker/distribution v2.8.3+incompatible
 	github.com/onsi/ginkgo/v2 v2.19.1
 	github.com/onsi/gomega v1.34.0
-	github.com/rancher/lasso v0.0.0-20240415182150-5993b260dd08
-	github.com/rancher/wrangler/v2 v2.1.4
+	github.com/rancher/lasso v0.0.0-20240705194423-b2a060d103c1
+	github.com/rancher/wrangler/v3 v3.0.0
 	github.com/sirupsen/logrus v1.9.3
 	github.com/urfave/cli/v2 v2.27.3
 	k8s.io/api v0.30.3
@@ -112,14 +112,15 @@ require (
 	gopkg.in/natefinch/lumberjack.v2 v2.2.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
-	k8s.io/apiextensions-apiserver v0.29.3 // indirect
+	k8s.io/apiextensions-apiserver v0.30.0 // indirect
 	k8s.io/apiserver v0.30.3 // indirect
 	k8s.io/cloud-provider v0.29.3 // indirect
-	k8s.io/code-generator v0.29.3 // indirect
+	k8s.io/code-generator v0.30.0 // indirect
 	k8s.io/component-base v0.30.3 // indirect
 	k8s.io/component-helpers v0.30.3 // indirect
 	k8s.io/controller-manager v0.29.3 // indirect
 	k8s.io/gengo v0.0.0-20240310015720-9cff6334dab4 // indirect
+	k8s.io/gengo/v2 v2.0.0-20240228010128-51d4e06bde70 // indirect
 	k8s.io/klog/v2 v2.120.1 // indirect
 	k8s.io/kms v0.30.3 // indirect
 	k8s.io/kube-openapi v0.0.0-20240228011516-70dd3763d340 // indirect
