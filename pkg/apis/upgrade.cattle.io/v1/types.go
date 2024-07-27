@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/buroa/system-upgrade-controller/pkg/apis/condition"
-	genericcondition "github.com/rancher/wrangler/v2/pkg/genericcondition"
+	genericcondition "github.com/rancher/wrangler/v3/pkg/genericcondition"
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )

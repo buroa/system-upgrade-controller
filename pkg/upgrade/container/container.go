@@ -5,7 +5,7 @@ import (
 
 	upgradeapiv1 "github.com/buroa/system-upgrade-controller/pkg/apis/upgrade.cattle.io/v1"
 	"github.com/docker/distribution/reference"
-	"github.com/rancher/wrangler/v2/pkg/name"
+	"github.com/rancher/wrangler/v3/pkg/name"
 	"github.com/sirupsen/logrus"
 	corev1 "k8s.io/api/core/v1"
 )

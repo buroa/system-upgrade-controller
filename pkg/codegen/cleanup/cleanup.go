@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/rancher/wrangler/v2/pkg/cleanup"
+	"github.com/rancher/wrangler/v3/pkg/cleanup"
 	"github.com/sirupsen/logrus"
 )
 
