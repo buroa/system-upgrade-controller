@@ -5,7 +5,7 @@ go 1.22.2
 require (
 	github.com/buroa/system-upgrade-controller/pkg/apis v0.15.0
 	github.com/docker/distribution v2.8.3+incompatible
-	github.com/onsi/ginkgo/v2 v2.20.0
+	github.com/onsi/ginkgo/v2 v2.20.1
 	github.com/onsi/gomega v1.34.1
 	github.com/rancher/lasso v0.0.0-20240705194423-b2a060d103c1
 	github.com/rancher/wrangler/v3 v3.0.0
