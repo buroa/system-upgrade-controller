@@ -1,5 +1,10 @@
 # System Upgrade Controller
 
+## Deprecated
+
+> [!WARNING]
+> This project is deprecated due to the upstream project [merging the changes](https://github.com/rancher/system-upgrade-controller/pull/328) that were made here.
+
 ## Upstream
 
 This is an opinionated fork of the upstream project at https://github.com/rancher/system-upgrade-controller.
